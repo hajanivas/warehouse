@@ -1,25 +1,25 @@
 <!-- Zone Details -->
 <div *ngIf="show">
-    <div *ngFor="let items of listItems; let i = index;">
-        <div class="zone-details">
-            <span class="icon-close" (click)="closeSlider()">
-                <img src="assets/images/icon-close.svg" width="22" alt="Close" />
-            </span>
-            <div class="header-fixed">
-                <div class="grid-title">Zone {{item.split('Z')[1]}}</div>
-                <div class="grid-header">
-                    <span>Stock quality</span>
-                    <span>SKU type</span>
-                    <span>Zone allocation</span>
-                    <span>Stock quality</span>
-                </div>
-            </div>
-            <div class="grid-list" *ngFor="let details of items[item];">
-                <span class="text-blue">{{details.stockQuality}}</span>
-                <span>{{details.sku}}</span>
-                <span>{{details.zone}}</span>
-                <span>{{details.quantity}}</span>
-            </div>
+  <div *ngFor="let items of listItems; let i = index">
+    <div class="zone-details">
+      <span class="icon-close" (click)="closeSlider()">
+        <img src="assets/images/icon-close.svg" width="22" alt="Close" />
+      </span>
+      <div class="header-fixed">
+        <div class="grid-title">Zone {{ item.split("Z")[1] }}</div>
+        <div class="grid-header">
+          <span>Stock quality</span>
+          <span>SKU type</span>
+          <span>Zone allocation</span>
+          <span>Stock quality</span>
         </div>
+      </div>
+      <div class="grid-list" *ngFor="let details of items[item]">
+        <span class="text-blue">{{ details.stockQuality }}</span>
+        <span>{{ details.sku }}</span>
+        <span>{{ details.zone }}</span>
+        <span>{{ details.quantity }}</span>
+      </div>
     </div>
+  </div>
 </div>
