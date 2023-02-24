@@ -1,0 +1,26 @@
+<!-- Zones List -->
+<div class="zones">
+    <ul
+        cdkDropList
+        #todoList="cdkDropList"
+        [cdkDropListData]="zone1"
+        [cdkDropListConnectedTo]="[doneList]"
+        class="zone-list"
+        (cdkDropListDropped)="drop($event)">
+            <li (click)="toggleSidepanel(lists)" *ngFor="let lists of zone1; let i = index;" [ngClass]="lists === item && showSidepanel === true ? 'active' : ''" cdkDrag>{{lists}}</li>
+    </ul>
+</div>
+  
+<div class="zones mt-90">
+    <ul
+        cdkDropList
+        #doneList="cdkDropList"
+        [cdkDropListData]="zone2"
+        [cdkDropListConnectedTo]="[todoList]"
+        class="zone-list"
+        (cdkDropListDropped)="drop($event)">
+            <li (click)="toggleSidepanel(lists)" *ngFor="let lists of zone2; let i = index;" [ngClass]="lists === item && showSidepanel === true ? 'active' : ''" cdkDrag>{{lists}}</li>
+    </ul>
+</div>
+
+<app-sidepanel [show]="showSidepanel" [item]="item" (output)="fromChild()" [ngClass]="showSidepanel === true ? 'panel-active' : 'panel-inactive'"></app-sidepanel>
